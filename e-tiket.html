@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>E-Tiket</title>
+  <style>
+    body {
+      background-color: #ebebeb;
+    }
+    .card {
+      margin: 20px auto;
+      max-width: 400px;
+    }
+    .card-title {
+            font-weight: 500;
+            color: #009970;
+            font-size: 24px;
+            transition: 0.3s color;
+        }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">The Grand Resort</h5>
+      <p class="card-text">ini adalah e-tiket anda:</p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Nama:</strong> <span id="namaPesanan"></span></li>
+        <li class="list-group-item"><strong>Tanggal Check-in:</strong> <span id="tanggalCheckinPesanan"></span></li>
+        <li class="list-group-item"><strong>Tanggal Check-out:</strong> <span id="tanggalCheckoutPesanan"></span></li>
+        <li class="list-group-item"><strong>Jumlah Tamu:</strong> <span id="jumlahTamuPesanan"></span></li>
+        <li class="list-group-item"><strong>Nomor Kamar:</strong> <span id="nomorKamarPesanan"></span></li>
+      </ul>
+    </div>
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="Hotel.html" class="btn btn-success ms-2">Kembali</a>
+      <button type="button" class="btn btn-secondary me-2">Hapus Data</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Ambil data pemesanan dari localStorage
+    const pesanan = JSON.parse(localStorage.getItem('pesanan'));
+
+    // Tampilkan data pemesanan di halaman e-tiket
+    if (pesanan) {
+        document.getElementById('namaPesanan').textContent = pesanan.nama;
+        document.getElementById('tanggalCheckinPesanan').textContent = pesanan.tanggalCheckin;
+        document.getElementById('tanggalCheckoutPesanan').textContent = pesanan.tanggalCheckout;
+        document.getElementById('jumlahTamuPesanan').textContent = pesanan.jumlahTamu;
+        document.getElementById('nomorKamarPesanan').textContent = pesanan.nomorKamar;
+    }
+
+    // Tambahkan event listener untuk tombol hapus
+    const hapus = document.querySelector('.btn-secondary');
+    hapus.addEventListener('click', function (event) {
+        // Hapus data dari localStorage
+        localStorage.removeItem('pesanan');
+
+        // Atur ulang nilai-nilai elemen <span>
+        document.getElementById('namaPesanan').textContent = "";
+        document.getElementById('tanggalCheckinPesanan').textContent = "";
+        document.getElementById('tanggalCheckoutPesanan').textContent = "";
+        document.getElementById('jumlahTamuPesanan').textContent = "";
+        document.getElementById('nomorKamarPesanan').textContent = "";
+    });
+});
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,618 @@
+<!doctype html>
+<html>
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="ikon.png">
+
+    <style>
+        body {
+            background-color: #ebebeb;
+        }
+        .navbar {
+            background-color: #fff;
+            height: 70px;
+            margin: 20px;
+            border-radius: 16px;
+            padding: 0.5rem;
+        }
+
+        .navbar-brand {
+            font-weight: 500;
+            color: #009970;
+            font-size: 24px;
+            transition: 0.3s color;
+        }
+        .offcanvas-title{
+            color: #009970;
+        }
+
+
+        .navbar-toggler {
+            border: none;
+            font-size: 1.25rem;
+        }
+
+        .navbar-toggler:focus, .btn-close:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        .nav-link {
+            color: #666777;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .navbar-nav .nav-link:hover, .navbar-nav .nav-link.active {
+        color: #666;
+        }
+
+
+            @media (min-width: 991px) {
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 100%; /* Ganti nilai 'p' menjadi '100%' */
+        height: 2px;
+        background-color: #009970;
+        visibility: hidden;
+
+    } 
+
+    .nav-link:hover::before, .nav-link:active::before {
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+        
+
+        .hero-section {
+            background: url(wel.png) no-repeat center;
+            background-size: cover;
+            width: 100%;
+            height: 97vh;
+            position: relative;
+            z-index: 0;
+        }
+
+        .hero-section::before {
+            background-color: rgba(0, 0, 0, 0.6);
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            z-index: -1;
+        }
+        @keyframes glow {
+         0% {
+        text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.8);
+         }
+         50% {
+        text-shadow: 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.8), 0 0 50px rgba(255,255,255,0.8);
+        }
+         100% {
+        text-shadow: 0 0 10px rgba(255,255,255,0.8), 0 0 20px rgba(255,255,255,0.8), 0 0 30px rgba(255,255,255,0.8), 0 0 40px rgba(255,255,255,0.8);
+    }
+}
+
+        .hero-section .container {
+            height: 100vh;
+            margin-top: 100px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @media (min-width: 768px) {
+            .hero-section .container {
+                margin-top: 0;
+            }
+        }
+
+        .carousel .h1 {
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            font-size: 4vw; /* Responsif berdasarkan lebar layar */
+            color: #fff;
+        }
+
+        @media (min-width: 768px) {
+            .hero-section .h1 {
+                font-size: 3.5vw; /* Ukuran font yang lebih kecil untuk layar yang lebih besar */
+            }
+        }
+
+        @media (min-width: 992px) {
+            .hero-section .container {
+                height: 80vh;
+            }
+        }
+
+        .aboutUs .container {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+            margin-top: 50px;
+        }
+        .aboutUs .a {
+            color: #009970;
+        }
+        .aboutUs .b {
+            color: #666;
+            line-height: 1.6;
+        }
+        .Check-button {
+            background-color: #009970;
+            color: #fff;
+            font-size: 14px;
+            padding: 8px 20px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: 0.3s background-color;
+        }
+
+        .Check-button:hover {
+            background-color: #04c28f;
+        }
+        .card .bintang {
+            position: relative;
+            color: #FFFF00; /* Warna kuning */
+        }
+        footer{
+            color: #0c0c0c;
+            background-color: #2d90c9;
+            text-align: center;
+            padding: 20px;
+            margin-top: auto;
+        }
+      
+        .carousel-caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.Check-button {
+    display: inline-block;
+    margin-top: 20px; /* Sesuaikan jarak dari teks */
+}
+
+
+.carousel-caption h1,
+.carousel-caption a {
+    margin-bottom: 20px; /* Jarak antara teks dan tombol */
+   
+}
+.carousel-item img {
+     /* Ganti dengan tinggi yang Anda inginkan */
+    object-fit: cover;
+    background-size: cover;
+            width: 100%;
+            height: 97vh; /* Untuk memastikan gambar diisi dengan sempurna */
+}
+.login-button{
+    background-color: #009970;
+    color: #fff;
+    font-size: 14px;
+    padding: 8px 20px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: 0.3s background-color;
+}
+.login-button{
+    background-color: #00b383;
+}
+
+        
+    </style>
+</head>
+<body>
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="2000">
+                <img src="Foto1.jpg" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 style="text-align: center; animation: glow 2s infinite alternate;">YOUR COMFORT AND SATIFACTION IS A REWARD FOR US</h1>
+                    <a href="#pemesanan" type="button" class="Check-button">Check-in</a>
+                </div>
+            </div>
+            <div class="carousel-item " data-bs-interval="2000">
+                <img src="foto2.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 style="text-align: center; animation: glow 2s infinite alternate;">YOUR COMFORT AND SATIFACTION IS A REWARD FOR US</h1>
+                    <a href="#pemesanan" type="button" class="Check-button">Check-in</a>
+                </div>
+            </div>
+            <div class="carousel-item " data-bs-interval="2000">
+                <img src="foto3.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 style="text-align: center; animation: glow 2s infinite alternate;">YOUR COMFORT AND SATIFACTION IS A REWARD FOR US</h1>
+                    <a href="#pemesanan" type="button" class="Check-button">Check-in</a>
+                </div>
+            </div>
+            <div class="carousel-item " data-bs-interval="2000">
+                <img src="foto4.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 style="text-align: center; animation: glow 2s infinite alternate;">YOUR COMFORT AND SATIFACTION IS A REWARD FOR US</h1>
+                    <a href="#pemesanan" type="button" class="Check-button">Check-in</a>
+                </div>
+            </div>
+            <div class="carousel-item " data-bs-interval="2000">
+                <img src="matahari.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 style="text-align: center; animation: glow 2s infinite alternate;">YOUR COMFORT AND SATIFACTION IS A REWARD FOR US</h1>
+                    <a href="#pemesanan" type="button" class="Check-button">Check-in</a>
+                </div>
+            </div>
+            <div class="carousel-item " data-bs-interval="2000">
+                <img src="wel.png" class="d-block w-100" alt="...">
+                <div class="carousel-caption d-none d-md-block">
+                    <h1 style="text-align: center; animation: glow 2s infinite alternate;">YOUR COMFORT AND SATIFACTION IS A REWARD FOR US</h1>
+                    <a href="#pemesanan" type="button" class="Check-button">Check-in</a>
+                </div>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div>
+<!-- navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand me-auto" >Grand Horizon Resort</a>
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Grand Horizon Resort</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+                    <li class="nav-item">
+                        <a class="nav-link active mx-lg-2" aria-current="page" href="#hero" style="color: #666;">Home</a>
+
+
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="#about-us">About us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="#contact-us">Contact us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link mx-lg-2" href="e-tiket.html">E-tiket</a>
+                    </li>
+                    <li form class="d-flex" role="search">
+                        <input id="searchInput" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success" type="submit">Search</button>
+                    </li>
+                </ul>
+                
+            </div>
+            
+        </div>
+        <div>
+         <a href="login.html" class="login-button">Login</a>   
+        <button class="navbar-toggler pe-0" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+    </div>
+</nav>
+<!-- end navbar -->
+
+<!-- hero -->
+
+<!-- end hero -->
+
+<!-- card -->
+<section class="pt-1" id="menu">
+<div id="hotelList" class="row text-justify g-4">
+    <div class="col me-3">
+        <div id="Livery"   class="card ms-3" style="width: 20rem; margin-top: 50px; height: 400px;">
+            <img src="Foto1.jpg" class="card-img-top" alt="Foto1" style="height: 200px;">
+            <div class="card-body">
+                <h5 class="card-title">Livery Risolf</h5>
+                <h4 class="bintang">&#9733;&#9733;&#9733;&#9733;<span class="bintang-setengah">&#9733;</span></h4>
+                <h6 class="review">4,2/5 (140 Review) </h6>
+                <p class="card-text">IDR 6.981.841</p>
+                <a class="btn btn-primary check-in-button" data-hotel="Livery">Check in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col me-3">
+        <div class="card" style="width: 20rem; margin-top: 50px; height: 400px;">
+            <img src="foto4.png" class="card-img-top" alt="foto4" style="height: 200px;">
+            <div class="card-body">
+                <h5 class="card-title">Shangrila Vista</h5>
+                <h4 class="bintang">&#9733;&#9733;&#9733;&#9733;&#9733;</h4>
+                <h6 class="review">4,5/5 (500 Review) </h6>
+                <p class="card-text">IDR 5.881.841</p>
+                <a class="btn btn-primary check-in-button" data-hotel="Shangrila">Check in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col me-3">
+        <div class="card ms-3"style="width: 20rem; margin-top: 50px; height: 400px;">
+            <img src="hotel.png" class="card-img-top" alt="The trans" style="height: 200px;">
+            <div class="card-body">
+                <h5 class="card-title">The Trans</h5>
+                <h4 class="bintang">&#9733;&#9733;&#9733;&#9733;&#9733;</h4>
+                <h6 class="review">4,3/5 (169 Review) </h6>
+                <p class="card-text">IDR 4.891.941</p>
+                <a class="btn btn-primary check-in-button" data-hotel="Trans">Check in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col me-3">
+        <div class="card ms-3" style="width: 20rem; margin-top: 50px; height: 400px;">
+            <img src="matahari.png" class="card-img-top" alt="Matahari" style="height: 200px;">
+            <div class="card-body">
+                <h5 class="card-title">The Luxury</h5>
+                <h4 class="bintang">&#9733;&#9733;&#9733;&#9733;&#9733;</h4>
+                <h6 class="review">4,0/5 (110 Review) </h6>
+                <p class="card-text">IDR 3.550.670</p>
+                <a class="btn btn-primary check-in-button" data-hotel="Matahari">Check-in</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col me-3">
+        <div class="card ms" style="width: 20rem; margin-top: 50px; height: 400px;">
+            <img src="foto2.png" class="card-img-top" alt="Matahari" style="height: 200px;">
+            <div class="card-body">
+                <h5 class="card-title">Imperial Oasis</h5>
+                <h4 class="bintang">&#9733;&#9733;&#9733;&#9733;&#9733;</h4>
+                <h6 class="review">4,7/5 (210 Review) </h6>
+                <p class="card-text">IDR 4.550.670</p>
+                <a class="btn btn-primary check-in-button" data-hotel="Imperial">Check-in</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col me-3">
+        <div class="card ms" style="width: 20rem; margin-top: 50px; height: 400px;">
+            <img src="foto3.png" class="card-img-top" alt="foto3" style="height: 200px;">
+            <div class="card-body">
+                <h5 class="card-title">Elysium Plaza</h5>
+                <h4 class="bintang">&#9733;&#9733;&#9733;&#9733;&#9733;</h4>
+                <h6 class="review">4,9/5 (340 Review) </h6>
+                <p class="card-text">IDR 5.555.670</p>
+                <a class="btn btn-primary check-in-button" data-hotel="Elysium">Check-in</a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div id="noMatchFound" style="display: none; margin-top: 100px; text-align: center; color: black;">
+        No match found
+    </div>
+</div>
+</section>
+
+<!-- card end -->
+
+<!-- About us-->
+
+<div class="aboutUs" id="about-us">
+    <div class="container">
+         <h1 class="a">About Us</h1>
+         <p class="b">Selamat datang di situs web pemesanan hotel Kelompok 2! Kami adalah tim yang berdedikasi untuk memberikan pengalaman pemesanan hotel yang mudah dan menyenangkan bagi Anda. Dengan berbagai macam hotel yang tersedia dan layanan pelanggan yang ramah, kami siap membantu Anda merencanakan perjalanan impian Anda.</p>
+        <p class="b">Kami percaya bahwa liburan harus menjadi momen yang menyenangkan dan tanpa stres. Oleh karena itu, kami berusaha untuk menyediakan platform yang intuitif dan informatif agar Anda dapat menemukan akomodasi yang sesuai dengan kebutuhan dan anggaran Anda.</p>
+        <p class="b">Terima kasih telah memilih kami sebagai mitra perjalanan Anda. Kami berharap dapat memberikan pengalaman menginap yang tak terlupakan bagi Anda. Jika Anda memiliki pertanyaan atau masukan, jangan ragu untuk menghubungi kami.</p>
+    </div>
+</div>
+
+<!-- About us End -->
+
+<!-- Check in -->
+<div class="card"  style="margin: 100px;">
+    <div class="card-body">
+        <h5 class="card-title">Pemesanan / Check-in</h5>
+        <form  id="pemesanan">
+            <div class="mb-3">
+                <label for="nama">Nama</label>
+                <input type="text" class="form-control" id="nama" placeholder="Masukkan nama Anda">
+            </div>
+            <div class="mb-3">
+                <label for="tanggal-checkin">Tanggal Check-in</label>
+                <input type="date" class="form-control" id="tanggal-checkin">
+            </div>
+            <div class="mb-3">
+                <label for="tanggal-checkin">Tanggal Check-out</label>
+                <input type="date" class="form-control" id="tanggal-checkout">
+            </div>
+            <div class="mb-3">
+                <label for="jumlah-tamu">Jumlah Tamu</label>
+                <input type="number" class="form-control" id="jumlah-tamu" placeholder="Masukkan jumlah tamu">
+            </div>
+            <div class="mb-3">
+                <label for="nomor-kamar">Nomor Kamar</label>
+                <input type="text" class="form-control" id="nomor-kamar" placeholder="Masukkan nomor kamar yang diinginkan">
+            </div>
+            <button type="submit" id="submitButton" class="btn btn-primary">Submit</button>
+
+
+        </form>
+    </div>
+    </div>
+
+
+
+<div class="modal fade" id="rekapModal" tabindex="-1" aria-labelledby="rekapModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="rekapModalLabel">Data Telah Direkap</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                Data Anda telah direkap. Terima kasih!
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer id="contact-us">
+    <h1>Contact us</h1>
+    <a href="https://wa.me/+6281322637647" class="btn btn-success">Whatsapp</a>
+</footer>
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+<!-- script untuk tombol submit dan check in -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const form = document.querySelector('form');
+
+        // Event listener untuk form submit
+        form.addEventListener('submit', function (event) {
+            // Mencegah perilaku default dari formulir
+            event.preventDefault();
+
+            // Mengambil nilai dari setiap input
+            const nama = document.getElementById('nama').value.trim();
+            const tanggalCheckin = document.getElementById('tanggal-checkin').value.trim();
+            const tanggalCheckout = document.getElementById('tanggal-checkout').value.trim();
+            const jumlahTamu = document.getElementById('jumlah-tamu').value.trim();
+            const nomorKamar = document.getElementById('nomor-kamar').value.trim();
+
+            // Periksa apakah semua input formulir sudah diisi
+            if (!nama || !tanggalCheckin || !tanggalCheckout || !jumlahTamu || !nomorKamar) {
+                // Jika tidak, munculkan pesan kesalahan
+                alert('Silakan lengkapi semua informasi pemesanan sebelum melanjutkan.');
+            } else if (nama || tanggalCheckin || tanggalCheckout || jumlahTamu || nomorKamar){
+                document.getElementById('Livery').scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+        
+        // Event listener untuk tombol "Check in"
+        const checkInButtons = document.querySelectorAll('.check-in-button');
+        checkInButtons.forEach(function (button) {
+        button.addEventListener('click', function (event) {
+            // Mengambil nilai dari setiap input
+            const nama = document.getElementById('nama').value.trim();
+            const tanggalCheckin = document.getElementById('tanggal-checkin').value.trim();
+            const tanggalCheckout = document.getElementById('tanggal-checkout').value.trim();
+            const jumlahTamu = document.getElementById('jumlah-tamu').value.trim();
+            const nomorKamar = document.getElementById('nomor-kamar').value.trim();
+
+            // Periksa apakah semua input formulir sudah diisi
+            if (!nama || !tanggalCheckin || !tanggalCheckout || !jumlahTamu || !nomorKamar) {
+                // Jika tidak, munculkan pesan kesalahan
+                alert('Silakan lengkapi semua informasi pemesanan sebelum melanjutkan.');
+            } else {
+                // Jika semua input formulir sudah diisi, munculkan modal "Data Telah Direkap"
+                const rekapModal = new bootstrap.Modal(document.getElementById('rekapModal'));
+                const pesanan = {
+                nama: nama,
+                tanggalCheckin: tanggalCheckin,
+                tanggalCheckout: tanggalCheckout,
+                jumlahTamu: jumlahTamu,
+                nomorKamar: nomorKamar
+            };
+
+            localStorage.setItem('pesanan', JSON.stringify(pesanan));
+                rekapModal.show();
+            }
+        });
+    });
+
+    // // Event listener untuk tombol tutup pada modal rekap
+    // rekapModal.addEventListener('hidden.bs.modal', function (event) {
+    //         // Menghapus nilai dari setiap input
+    //         document.getElementById('nama').value = '';
+    //         document.getElementById('tanggal-checkin').value = '';
+    //         document.getElementById('tanggal-checkout').value = '';
+    //         document.getElementById('jumlah-tamu').value = '';
+    //         document.getElementById('nomor-kamar').value = '';
+    //     });
+        
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const searchInput = document.getElementById('searchInput');
+    const hotelList = document.getElementById('hotelList');
+
+    searchInput.addEventListener('input', function (event) {
+        const searchValue = event.target.value.trim().toLowerCase();
+        const cards = hotelList.querySelectorAll('.col'); // Menggunakan '.col' untuk mengambil semua kolom kartu
+
+        let matchFound = false;
+        let visibleCards = 0; // Menyimpan jumlah kartu yang terlihat
+
+        cards.forEach(function (card) {
+            const hotelName = card.querySelector('.card-title').textContent.toLowerCase();
+            if (hotelName.includes(searchValue)) {
+                card.style.display = ''; // Mengubah tampilan kartu menjadi normal jika cocok
+                matchFound = true;
+                visibleCards++;
+            } else {
+                card.style.display = 'none'; // Menyembunyikan kartu jika tidak cocok
+            }
+        });
+
+        // Menentukan lebar kolom kartu berdasarkan jumlah kartu yang terlihat
+        if (visibleCards > 0) {
+            const gridTemplateColumns = `repeat(${visibleCards}, 1fr)`; // Menyesuaikan grid berdasarkan jumlah kartu terlihat
+            hotelList.style.gridTemplateColumns = gridTemplateColumns;
+        }
+
+        const noMatchFound = document.getElementById('noMatchFound');
+        if (!matchFound) {
+            noMatchFound.style.display = 'block';
+        } else {
+            noMatchFound.style.display = 'none';
+        }
+    });
+});
+
+</script> 
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const checkInButton = document.querySelector('.Check-button');
+    checkInButton.addEventListener('click', function (event) {
+        event.preventDefault();
+
+        // Di sini Anda bisa menambahkan logika yang sama seperti yang Anda gunakan untuk tombol "Check-in" lainnya
+        // Pastikan untuk memeriksa validitas input dan menampilkan modal jika input sudah valid
+    });
+}); -->
+
+</script>
+<!-- script untuk pop up -->
+
+</body>
+</html>
